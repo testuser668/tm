@@ -1,0 +1,146 @@
+<div class="container px-2 py-5" id="gamesList">
+  <h2 class="pb-2 border-bottom">Played games ({{gameData.length}})</h2>
+  <table class="table table-sm table-striped">
+    <thead>
+    <tr>
+      <th scope="col" sortable="PlayedOn" (sort)="onSort($event)"><i style="color:#3767d0" class="bi bi-calendar3"></i><span class='d-none d-sm-inline-block'>&nbsp;Date</span></th>
+      <th scope="col" sortable="First" (sort)="onSort($event)"><span class='d-none d-sm-inline-block'>1st&nbsp;</span> <i style="color:#ffd700" class="bi bi-award-fill"></i></th>
+      <th><span class='d-none d-sm-inline-block'>2nd&nbsp;</span> <i style="color:#e0e4f8" class="bi bi-award-fill"></i></th>
+      <th><span class='d-none d-sm-inline-block'>3rd&nbsp;</span> <i style="color:#ff9377" class="bi bi-award-fill"></i></th>
+      <th><span class='d-none d-sm-inline-block'>Expansions&nbsp;</span> <i style="color:#3767d0" class="bi bi-stack"></i></th>
+      <th scope="col" sortable="Points" (sort)="onSort($event)"><span class='d-none d-sm-inline-block'>Points&nbsp;</span> <i class="bi bi-bar-chart-fill"></i></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let game of gameData " class="small" >
+      <td> {{ toDate(game.PlayedOn)  }} </td>
+      <td> {{ game.First  }} </td>
+      <td> {{ game.Second }} </td>
+      <td> {{ game.Third }} </td>
+      <td>
+        <img *ngIf="game.Venus" alt='venus' src='/assets/images/Venus_Next_icon.webp' width='20' height='20' />
+        <img *ngIf="game.Colonies" alt='colonies' src='/assets/images/Colonies_icon.webp' width='20' height='20' />
+        <img *ngIf="game.Turmoil" alt='turmoil' src='/assets/images/Turmoil_icon.webp' width='20' height='20' />
+      </td>
+      <td *ngIf='game.Points > 0; else pointsNull'> {{ game.Points }} </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+<ng-template #pointsNull>
+   <td></td>
+</ng-template>
+
+<div class="container px-2" id="leaderboardSeason" *ngIf="groupedByPlayerWins.length>0">
+  <h2 class="pb-2 border-bottom">Leaderboard</h2>
+  <table class="table table-sm table-striped">
+    <thead>
+    <tr>
+      <th><i class="bi bi-person-circle"></i> Player</th>
+      <th>1st <i style="color:#ffd700" class="bi bi-award-fill"></i></th>
+      <th>2nd <i style="color:#e0e4f8" class="bi bi-award-fill"></i></th>
+      <th>3rd <i style="color:#ff9377" class="bi bi-award-fill"></i></th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr class="small" >
+      <td class="fw-bold">
+        <img src='assets/images/gold-cup(1).png' alt='gold' width="30" height="30"> {{ groupedByPlayerWins[0].player }}
+      </td>
+      <td> {{ groupedByPlayerWins[0].first  }} </td>
+      <td> {{ groupedByPlayerWins[0].second }} </td>
+      <td> {{ groupedByPlayerWins[0].third }} </td>
+    </tr>
+    <tr class="small" >
+      <td class="fw-bold">
+        <img src='assets/images/silver-cup(1).png' alt='silver' width="30" height="30"> {{ groupedByPlayerWins[1].player }}
+      </td>
+      <td> {{ groupedByPlayerWins[1].first  }} </td>
+      <td> {{ groupedByPlayerWins[1].second }} </td>
+      <td> {{ groupedByPlayerWins[1].third }} </td>
+    </tr>
+    <tr class="small">
+      <td class="fw-bold" >
+        <img src='assets/images/bronze-cup(1).png' alt='bronze' width="30" height="30"> {{ groupedByPlayerWins[2].player }}
+      </td>
+      <td> {{ groupedByPlayerWins[2].first  }} </td>
+      <td> {{ groupedByPlayerWins[2].second }} </td>
+      <td> {{ groupedByPlayerWins[2].third }} </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+
+
+<div class="container px-2 py-5" id="custom-cards" [hidden]='true'>
+  <h2 class="pb-2 border-bottom">Most wins</h2>
+
+  <div class="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+    <div class="col">
+      <div class="card card-cover h-100 overflow-hidden bg-light bg-opacity-50 rounded-5">
+        <div class="d-flex flex-column align-items-center h-100 p-5 pb-4 text-black-50">
+          <img src='assets/images/silver-cup(1).png' alt='silver' width='120' height='120'>
+          <h2 class="pt-0 mt-1 mb-0 display-6 lh-1 fw-bold">rr</h2>
+          <ul class="d-flex list-unstyled mt-4">
+            <li class="d-flex align-items-center me-3">
+              <b>111</b> <i style = "color:#ffd700" class="bi bi-award-fill"></i>
+            </li>
+            <li class="d-flex align-items-center me-3">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+              <b>1</b> <i style = "color:#e0e4f8" class="bi bi-award-fill"></i>
+            </li>
+            <li class="d-flex align-items-center">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+              <b>0</b> <i style = "color:#ff9377" class="bi bi-award-fill"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card card-cover h-100 overflow-hidden bg-light bg-opacity-50 rounded-5">
+        <div class="d-flex flex-column align-items-center h-100 p-3 pb-4 text-black-50">
+          <img src='assets/images/gold-cup.png' alt='gold' width='150' height='150'>
+          <h2 class="pt-0 mt-1 mb-0 display-6 lh-1 fw-bold">Player C</h2>
+          <ul class="d-flex list-unstyled mt-4">
+            <li class="d-flex align-items-center me-3">
+              <b>22</b> <i style = "color:#ffd700" class="bi bi-award-fill"></i>
+            </li>
+            <li class="d-flex align-items-center me-3">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+              <b>2</b> <i style = "color:#e0e4f8" class="bi bi-award-fill"></i>
+            </li>
+            <li class="d-flex align-items-center">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+              <b>5</b> <i style = "color:#ff9377" class="bi bi-award-fill"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="col">
+      <div class="card card-cover h-100 overflow-hidden bg-light bg-opacity-50 rounded-5">
+        <div class="d-flex flex-column align-items-center h-100 p-5 pt-6 pb-4 text-black-50">
+          <img src='assets/images/bronze-cup.png' alt='bronze' width='90' height='90'>
+          <h2 class="pt-0 mt-1 mb-0 display-6 lh-1 fw-bold">Player B</h2>
+          <ul class="d-flex list-unstyled mt-4">
+            <li class="d-flex align-items-center me-3">
+              <b>5</b> <i style = "color:#ffd700" class="bi bi-award-fill"></i>
+            </li>
+            <li class="d-flex align-items-center me-3">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#geo-fill"/></svg>
+              <b>10</b> <i style = "color:#e0e4f8" class="bi bi-award-fill"></i>
+            </li>
+            <li class="d-flex align-items-center">
+              <svg class="bi me-2" width="1em" height="1em"><use xlink:href="#calendar3"/></svg>
+              <b>15</b> <i style = "color:#ff9377" class="bi bi-award-fill"></i>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
