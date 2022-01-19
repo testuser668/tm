@@ -1,4 +1,8 @@
-# TmFrontend
+# Tm Stats
+
+This project aims to record statistics about TM played games. It has overall view (all games) and season views (games per season/year) with some leaderboard stats. 
+
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.1.2.
 
