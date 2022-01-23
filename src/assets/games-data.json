@@ -228,5 +228,15 @@
     "Colonies": 1,
     "Turmoil": 0,
     "Points": 137
+  },
+    {
+    "PlayedOn": "2022-01-22",
+    "First": "r",
+    "Second": "b",
+    "Third": "y",
+    "Venus": 1,
+    "Colonies": 1,
+    "Turmoil": 0,
+    "Points": 140
   }
 ]
