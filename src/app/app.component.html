@@ -1,22 +1,51 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-  <!--button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle" aria-controls="toggle" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button-->
+<nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+<!--  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#toggle" aria-controls="toggle" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--    <span class="navbar-toggler-icon"></span>-->
+<!--  </button>-->
+<!--  <div class="collapse navbar-collapse justify-content-center" id="toggle">-->
   <div class="navbar-expand mx-auto" id="toggle">
     <ul class="navbar-nav">
-      <li class="nav-item">
-        <a routerLink="season/2022" routerLinkActive="active" class="nav-link" >Season '22</a>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+          Seasons
+        </a>
+        <ul class="dropdown-menu bg-dark" aria-labelledby="navbarDropdown">
+          <li class="nav-item">
+            <a routerLink="season/2022" routerLinkActive="active" class="nav-link"
+               data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Season '22</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="season/2021" routerLinkActive="active" class="nav-link"
+               data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Season '21</a>
+          </li>
+          <li class="nav-item">
+            <a routerLink="season/2020" routerLinkActive="active" class="nav-link"
+               data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Season '20</a>
+          </li>
+        </ul>
       </li>
       <li class="nav-item">
-        <a routerLink="season/2021" routerLinkActive="active" class="nav-link" >Season '21</a>
+        <a routerLink="overall" routerLinkActive="active" class="nav-link"
+           data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Overall</a>
       </li>
       <li class="nav-item">
-        <a routerLink="season/2020" routerLinkActive="active" class="nav-link" >Season '20</a>
-      </li>
-      <li class="nav-item">
-        <a routerLink="overall" routerLinkActive="active" class="nav-link" >Overall</a>
+        <a routerLink="dune" routerLinkActive="active" class="nav-link text-info"
+           data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Dune</a>
       </li>
     </ul>
+  </div>
+<!--    <ul class="navbar-nav navbar-right">-->
+<!--      <li class="nav-item">-->
+<!--        <div *ngIf="getUser() != null; else loginTemplate">-->
+<!--          <a routerLink="/" routerLinkActive="active" class="nav-link" (click)="logout()">Logout</a>-->
+<!--        </div>-->
+<!--        <ng-template #loginTemplate>-->
+<!--          <a routerLink="login" routerLinkActive="active" class="nav-link"-->
+<!--             data-bs-toggle="collapse" data-bs-target=".navbar-collapse.show">Login</a>-->
+<!--        </ng-template>-->
+<!--      </li>-->
+<!--    </ul>-->
   </div>
 </nav>
 <router-outlet></router-outlet>

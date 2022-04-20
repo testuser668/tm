@@ -1,0 +1,69 @@
+<div class="d-flex container justify-content-center">
+  <form id="duneform" class="row g-4 pt-5" [formGroup]="formMars" (ngSubmit)="onSubmit()">
+
+    <div class="input-group">
+      <div class="input-group-text bg-white"><i class="bi bi-calendar3"></i></div>
+      <input class="form-control" formControlName="playedOn" placeholder='YYYY-MM-DD' id='playedOn'
+             [ngClass]="{ 'is-invalid': submitted && f['playedOn'].errors}" type="text" />
+    </div>
+
+
+    <div class="input-group">
+      <div class="input-group-text bg-white"><i style="color:#ffd700" class="bi bi-award-fill"></i></div>
+      <select class="form-select" formControlName="first" [ngClass]="{ 'is-invalid': submitted && f['first'].errors}">
+        <option value="" selected disabled>1st</option>
+        <option value="b">b</option>
+        <option value="r">r</option>
+        <option value="y">y</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-text bg-white"><i style="color:#e0e4f8" class="bi bi-award-fill"></i></div>
+      <select class="form-select" formControlName="second" [ngClass]="{ 'is-invalid': submitted && f['second'].errors}">
+        <option value="" selected disabled>2nd</option>
+        <option value="b">b</option>
+        <option value="r">r</option>
+        <option value="y">y</option>
+      </select>
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-text bg-white"><i style="color:#ff9377" class="bi bi-award-fill"></i></div>
+      <select class="form-select" formControlName="third" [ngClass]="{ 'is-invalid': submitted && f['third'].errors}">
+        <option value="" selected disabled>3rd</option>
+        <option value="b">b</option>
+        <option value="r">r</option>
+        <option value="y">y</option>
+      </select>
+    </div>
+
+    <div class='form-check mt-4 mx-4'>
+      <input class="form-check-input" type="checkbox" formControlName="venus" id="venus">
+      <label class="form-check-label" for="venus">Venus Next</label>
+    </div>
+    <div class='form-check mt-0 mx-4'>
+      <input class="form-check-input" type="checkbox" formControlName="colonies" id="colonies">
+      <label class="form-check-label" for="colonies">Colonies</label>
+    </div>
+    <div class='form-check mt-0 mx-4'>
+      <input class="form-check-input" type="checkbox" formControlName="turmoil" id="turmoil">
+      <label class="form-check-label" for="turmoil">Turmoil</label>
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-text bg-white"><i class="bi bi-bar-chart-fill"></i></div>
+      <input class="form-control bg-opacity-10" formControlName="points" placeholder="Points" id="points"
+             [ngClass]="{ 'is-invalid': submitted && f['points'].errors}" type="text"/>
+    </div>
+    <div class="form-error text-danger">
+      <p *ngIf="formMars.hasError('scoreError')">Players cannot repeat</p>
+      <p class="success text-success"></p>
+    </div>
+
+    <div class="input-group">
+      <button class="btn btn-primary col-12" type="submit">Add mars game</button>
+    </div>
+
+  </form>
+</div>

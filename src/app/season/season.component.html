@@ -1,4 +1,8 @@
+<div class="mars">
 <div class="container px-2 py-5" id="gamesList">
+  <div *ngIf='daysSinceLastGame() > 5'>
+    <i style="color:#ffb700" class="bi bi-exclamation-circle-fill"></i> {{daysSinceLastGame()}} days since last game.
+  </div>
   <h2 class="pb-2 border-bottom"> {{title}} ({{gameData.length}})</h2>
   <table class="table table-sm table-striped">
     <thead>
@@ -13,16 +17,16 @@
     </thead>
     <tbody>
       <tr *ngFor = "let game of gameData" class="small" >
-        <td> {{ toDate(game.PlayedOn) }} </td>
-        <td class="px-1"> {{ game.First  }} </td>
-        <td class="px-1"> {{ game.Second }} </td>
-        <td class="px-1"> {{ game.Third }} </td>
+        <td> {{ toDate(game.playedOn) }} </td>
+        <td class="px-1"> {{ game.first  }} </td>
+        <td class="px-1"> {{ game.second }} </td>
+        <td class="px-1"> {{ game.third }} </td>
         <td>
-          <img *ngIf="game.Venus" alt="venus" src="/assets/images/Venus_Next_icon.webp" width="20" height="20" />
-          <img *ngIf="game.Colonies" alt="colonies" src="/assets/images/Colonies_icon.webp" width="20" height="20" />
-          <img *ngIf="game.Turmoil" alt="turmoil" src="/assets/images/Turmoil_icon.webp" width="20" height="20" />
+          <img *ngIf="game.venus" alt="venus" src="/assets/images/Venus_Next_icon.webp" width="20" height="20" />
+          <img *ngIf="game.colonies" alt="colonies" src="/assets/images/Colonies_icon.webp" width="20" height="20" />
+          <img *ngIf="game.turmoil" alt="turmoil" src="/assets/images/Turmoil_icon.webp" width="20" height="20" />
         </td>
-        <td *ngIf='game.Points > 0; else pointsNull'> {{ game.Points }} </td>
+        <td *ngIf='game.points > 0; else pointsNull'> {{ game.points }} </td>
       </tr>
     </tbody>
   </table>
@@ -57,3 +61,4 @@
 <ng-template #pointsNull>
   <td></td>
 </ng-template>
+</div>

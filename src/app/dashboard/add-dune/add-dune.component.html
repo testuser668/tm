@@ -1,0 +1,70 @@
+<div class="d-flex container justify-content-center">
+  <form id="duneform" class="row g-4 pt-5" [formGroup]="formDune" (ngSubmit)="onSubmit()">
+
+    <div class="input-group">
+      <div class="input-group-text bg-white"><i class="bi bi-calendar3"></i></div>
+      <input class="form-control" formControlName="playedOn" placeholder='YYYY-MM-DD' id='playedOn'
+        [ngClass]="{ 'is-invalid': submitted && f['playedOn'].errors}" type="text" />
+      <!--        <div *ngIf="submitted && f['date'].errors" class="invalid-feedback">-->
+      <!--          <div *ngIf="f['date'].errors?.['required']">Date (yyyy-MM-dd) is required</div>-->
+      <!--        </div>-->
+    </div>
+
+
+    <div class="input-group">
+      <div class="input-group-text bg-white"><i style="color: darkred" class="bi bi-person-circle"></i></div>
+      <select class="form-select" formControlName="leaderY"
+        [ngClass]="{ 'is-invalid': submitted && f['leaderY'].errors}">
+        <option value="" selected disabled>Leader Y</option>
+        <option *ngFor="let leader of getLeaders()" value="{{leader.name}}">{{leader.name}}
+          <span [innerHTML]='leader.stars'></span>
+        </option>
+      </select>
+      <!--        <div *ngIf="submitted && f['leaderY'].errors" class="invalid-feedback">-->
+      <!--          <div *ngIf="f['leaderY'].errors?.['required']">Leader Y is required</div>-->
+      <!--        </div>-->
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-text bg-white"><i style="color: darkgreen" class="bi bi-person-circle"></i></div>
+      <select class="form-select" formControlName="leaderB"
+        [ngClass]="{ 'is-invalid': submitted && f['leaderB'].errors}">
+        <option value="" selected disabled>Leader B</option>
+        <option *ngFor="let leader of getLeaders()" value="{{leader.name}}">{{leader.name}}
+          <span [innerHTML]='leader.stars'></span>
+        </option>
+      </select>
+      <!--        <div *ngIf="submitted && f['leaderB'].errors" class="invalid-feedback">-->
+      <!--          <div *ngIf="f['leaderB'].errors?.['required']">Leader B is required</div>-->
+      <!--        </div>-->
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-text bg-white" style='color: darkorange'><i class="bi bi-trophy-fill"></i></div>
+      <select class="form-select" formControlName="winner" [ngClass]="{ 'is-invalid': submitted && f['winner'].errors}">
+        <option value="" selected disabled>Winner</option>
+        <option value="y">LeaderY</option>
+        <option value="b">LeaderB</option>
+      </select>
+      <!--        <div *ngIf="submitted && f['winner'].errors" class="invalid-feedback">-->
+      <!--          <div *ngIf="f['winner'].errors?.['required']">Winner is required</div>-->
+      <!--        </div>-->
+    </div>
+
+    <div class="input-group">
+      <div class="input-group-text bg-white"><i class="bi bi-bar-chart-fill"></i></div>
+      <input class="form-control" formControlName="points" placeholder="Points" id="points"
+        [ngClass]="{ 'is-invalid': submitted && f['points'].errors}" type="text"/>
+    </div>
+    <div class="form-error text-danger">
+      <p *ngIf="formDune.hasError('scoreError')">Player Leaders must be different</p>
+      <p class="success text-success"></p>
+    </div>
+
+    <div class="">
+      <button class="btn btn-primary col-12" type="submit">Add dune game</button>
+    </div>
+
+  </form>
+</div>
+

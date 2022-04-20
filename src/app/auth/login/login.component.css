@@ -1,0 +1,22 @@
+.dune {
+  height: 100vh;
+  padding-top: 55px;
+}
+
+.dune > * {
+  position: relative;
+}
+
+.dune::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-image: url("/assets/images/marsfuture.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.4;
+
+}

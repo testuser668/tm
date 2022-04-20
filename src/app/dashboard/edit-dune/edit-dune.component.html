@@ -1,0 +1,18 @@
+<table class="table table-sm border-dark m">
+  <thead>
+  <tr>
+    <th>Key({{gameData.length}})</th>
+    <th>Date | Winner | LeaderY | LeaderB | Points</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let game of gameData.reverse() " class="small">
+    <td>
+      <span class="badge bg-danger bg-opacity-75" style="cursor: pointer" (click)='remove(game.key)'>clear</span>
+    </td>
+    <td> {{ toDate(game.payload.val().playedOn) }} | <span class="badge bg-dark">{{ game.payload.val().winner }}</span>
+      | {{ game.payload.val().leaderY }} | {{ game.payload.val().leaderB }}
+      | {{ game.payload.val().points }} </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,55 @@
+<div class="dune">
+  <div class="container px-2 py-5">
+  <table class="table table-sm border-dark">
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Y Leader</th>
+        <th>1st</th>
+        <th>Points</th>
+        <th>B Leader</th>
+      </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor = "let game of gameData" class="small">
+      <td>{{ toDate(game.playedOn) }}</td>
+      <td>{{ game.leaderY }}</td>
+      <td>{{ game.winner }} </td>
+      <td>{{ game.points }}</td>
+      <td>{{ game.leaderB }}</td>
+    </tr>
+    </tbody>
+  </table>
+  </div>
+  <footer class="footer mt-auto">
+    <div class="container" *ngIf="groupedByLeaderWins.length > 0">
+      <h5>Leader power according to won games</h5>
+      <div ngPreserveWhitespaces>
+      <span *ngFor="let leader of groupedByLeaderWins">
+        <span class="badge bg-secondary">
+          {{leader.leader}} <span style="color: rgb(189,187,187); font-size: 12px;" [innerHTML]="leader.stars"></span>
+        </span><span class="badge bg-dark">{{leader.wins}}/{{leader.total}}</span>&nbsp;
+      </span>
+      </div>
+    </div>
+
+    <div class="container mt-3" *ngIf="ixLeaders.length > 0">
+      <h5>Rise of Ix Leaders</h5>
+      <div ngPreserveWhitespaces>
+      <span *ngFor="let leader of ixLeaders">
+        <span style='background-color: #5e66c4' class="badge">
+          {{leader.leader}} <span style="color: rgb(189,187,187); font-size: 12px;" [innerHTML]="leader.stars"></span>
+        </span>&nbsp;
+      </span>
+      </div>
+    </div>
+
+    <div class="container mt-3" [hidden]='true'>
+      <h5>Legend</h5>
+      <span><i class="bi bi-trophy-fill" style="color:#e0e4f8"></i> 3 wins in a row</span><br>
+      <span><i class="bi bi-trophy-fill" style="color:#ffd700"></i> 5 wins in a row</span><br>
+      <span><i class="bi bi-activity" style="color:darkred"></i> min 3 games in a week</span><br>
+    </div>
+  </footer>
+</div>
+

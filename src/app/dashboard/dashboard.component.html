@@ -1,0 +1,24 @@
+<div class="dashboard">
+  <div class="container px-2" id="dashboard-main">
+
+    <span routerLink="../dashboard" routerLinkActive="active" style="cursor: pointer;" class="badge bg-secondary">Mars</span> /
+    <span routerLink="edit-dune" routerLinkActive="active" style="cursor: pointer;" class="badge bg-secondary">Dune</span> /
+    <span routerLink="add-mars" routerLinkActive="active" style="cursor: pointer;" class='badge bg-secondary'>Add Mars</span> /
+    <span routerLink="add-dune" routerLinkActive="active" style="cursor: pointer;" class='badge bg-secondary'>Add Dune</span> /
+    <span *ngIf="getUserInfo() as user" style="cursor: pointer;"  class="badge bg-dark" (click)="logout()">
+      {{ user[0].email }} Logout</span>
+
+    <h2 class="mt-4">Dashboard</h2>
+    <div *ngIf='daysSinceLastGame() > 5' class="bg-warning col-2 text-center" >
+      {{daysSinceLastGame()}} days since last game.
+    </div>
+    <div class="mb-4" ngPreserveWhitespaces>
+      <span style="cursor: pointer" class="badge bg-info" (click)="add()">Add mars game</span>
+      <span style="cursor: pointer" class="badge bg-success" (click)="addjson()">Add mars games from json</span>
+      <span style="cursor: pointer" class="badge bg-danger" (click)="deleteAllMarsGames()">Delete all mars games</span>
+    </div>
+    <p class='error text-danger'></p>
+    <router-outlet></router-outlet>
+  </div>
+
+</div>

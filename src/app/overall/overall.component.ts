@@ -38,7 +38,8 @@ export class NgbdSortableHeader {
 
 @Component({
   selector: 'overall',
-  templateUrl: './overall.component.html'
+  templateUrl: './overall.component.html',
+  styleUrls: ['./overall.component.css']
 })
 export class OverallComponent implements OnInit {
 
@@ -46,6 +47,7 @@ export class OverallComponent implements OnInit {
   gameDataConst: Game[] = [];
   gameData: Game[] = [];
   groupedByPlayerWins: PlayerWins[] = [];
+  isMaskedGame = true;
 
   @ViewChildren(NgbdSortableHeader) headers!: QueryList<NgbdSortableHeader>;
 
@@ -53,7 +55,8 @@ export class OverallComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.gameService.getGames().subscribe(data => {
+    this.gameService.getGamesFromDB().subscribe(data => {
+      data.reverse();
       this.gameData = data;
       this.gameDataConst = data;
       this.groupedByPlayerWins = this.gameService.getPlayerWins(data);
@@ -61,8 +64,7 @@ export class OverallComponent implements OnInit {
   }
 
   toDate(value: string) {
-    const datePipe = new DatePipe('de-DE');
-    return datePipe.transform(value, 'dd.MM.yy');
+    return new DatePipe('de-DE').transform(value, 'dd.MM.yy');
   }
 
   onSort({column, direction} : SortEvent) {
@@ -75,6 +77,10 @@ export class OverallComponent implements OnInit {
         return direction === 'asc' ? res : -res;
       });
     }
+  }
+
+  toggleIsMasked() {
+    this.isMaskedGame = !this.isMaskedGame;
   }
 }
 

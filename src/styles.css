@@ -1,9 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-.body565 {
-  min-height: 75rem;
-  padding-top: 4.5rem;
-}
 .pt-6 {
   padding-top: 4.5rem !important;
 }
@@ -29,3 +25,56 @@ th[sortable].desc:before {
   transform: rotate(180deg);
   -ms-transform: rotate(180deg);
 }
+
+form {
+  width: 100%;
+  max-width: 330px;
+  margin: auto;
+}
+
+.dune {
+  height: 100vh;
+  padding-top: 55px;
+}
+
+.dune > * {
+  position: relative;
+}
+
+.dune::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-image: url("/assets/images/dunearrakis.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.8;
+
+}
+
+.mars {
+  height: 100vh;
+  padding-top: 55px;
+}
+
+.mars > * {
+  position: relative;
+}
+
+.mars::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-image: url("/assets/images/tmmedium.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.7;
+
+}
+

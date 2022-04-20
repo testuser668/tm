@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Game} from "../game";
 import {PlayerWins} from "../playerWins";
 import {GameService} from "../game.service";
@@ -12,6 +12,7 @@ import {DatePipe} from "@angular/common";
 export class SeasonComponent implements OnInit {
 
   title = "";
+  season = "";
   gameData : Game[] = [];
   groupedByPlayerWins : PlayerWins[] = [];
 
@@ -22,6 +23,7 @@ export class SeasonComponent implements OnInit {
     this.route.params.subscribe(params => {
       this.getSeason(params['season']);
       this.title = "Season " + params['season'];
+      this.season = params['season'];
     })
   }
 
@@ -37,7 +39,7 @@ export class SeasonComponent implements OnInit {
     });
   }
 
-  hideLeaderboard() : boolean {
+  hideLeaderboard(): boolean {
     return this.gameData.length < 6;
   }
 
@@ -53,5 +55,24 @@ export class SeasonComponent implements OnInit {
     }, {})
   }
 
+  daysSinceLastGame(): number {
+    if (this.gameData.length > 0 && this.isCurrentSeason()) {
+      const now = new Date();
+      const last = new Date(this.gameData[this.gameData.length - 1].playedOn);
+      const oneDay = 1000 * 60 * 60 * 24;
+      // Calculating the time difference between two dates
+      const diffInTime = now.getTime() - last.getTime();
+      // Calculating the no. of days between two dates
+      return Math.floor(diffInTime / oneDay);
+    } else {
+      return 0;
+    }
+  }
+
+  isCurrentSeason(): boolean {
+    const a = new Date().getFullYear().toString();
+    const b = this.gameData[this.gameData.length - 1].playedOn.substr(0, 4);
+    return a === b;
+  }
 
 }

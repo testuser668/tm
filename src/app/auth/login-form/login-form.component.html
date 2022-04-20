@@ -1,0 +1,22 @@
+<form id="signIn" class="row g-4 pt-5" [formGroup]="form" (ngSubmit)="onSubmit()">
+
+  <div class="input-group">
+    <div class="input-group-text"><i class="bi bi-envelope-fill"></i></div>
+    <input class="form-control" formControlName="email" placeholder='Email' id='email'
+           [ngClass]="{ 'is-invalid': submitted && f['email'].errors}" type="text" />
+    <div *ngIf="submitted && f['email'].errors" class="invalid-feedback">
+      <div *ngIf="f['email'].errors?.['required']">Email is required</div>
+      <div *ngIf="f['email'].errors?.['email']">Email is invalid</div>
+    </div>
+  </div>
+  <div class="input-group">
+    <div class="input-group-text"><i class="bi bi-lock-fill"></i></div>
+    <input class="form-control" formControlName="password" placeholder='Password' type="password" />
+  </div>
+  <div class="input-group">
+    <button class="btn btn-primary col-12" type="submit">Login</button>
+<!--    <button class="btn btn-secondary col-2" type="submit" (click)='onCheat()'><i class="bi bi-key-fill"></i></button>-->
+  </div>
+  <p class="error text-danger"></p>
+
+</form>

@@ -1,0 +1,25 @@
+.dashboard {
+  height: 100vh;
+  padding-top: 55px;
+}
+.dashboard > * {
+  position: relative;
+}
+
+.dashboard::before {
+  content: "";
+  display: block;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  background-image: url("/assets/images/marsfuture.webp");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.4;
+
+}
+
+#page-content-wrapper {
+  min-width: 100vw;
+}

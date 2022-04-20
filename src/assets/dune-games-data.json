@@ -1,0 +1,74 @@
+{
+  "dunee-games": [
+    {
+      "playedOn": "2021-11-20",
+      "winner": "b",
+      "leaderB": "Baron Harkonnen",
+      "leaderY": "Duke Leto Atreides",
+      "points": 10
+    },
+    {
+      "playedOn": "2021-11-28",
+      "winner": "y",
+      "leaderB": "Helena Richese",
+      "leaderY": "Count Ilban Richese",
+      "points": 10
+    },
+    {
+      "playedOn": "2021-12-05",
+      "winner": "b",
+      "leaderB": "Duke Leto Atreides",
+      "leaderY": "Glossu Beast Rabban",
+      "points": 10
+    },
+    {
+      "playedOn": "2022-01-27",
+      "winner": "b",
+      "leaderB": "Duke Leto Atreides",
+      "leaderY": "Countess Ariana Thorvald",
+      "points": 10
+    },
+    {
+      "playedOn": "2022-02-03",
+      "winner": "b",
+      "leaderB": "Glossu Beast Rabban",
+      "leaderY": "Earl Memnon Thorvald",
+      "points": 11
+    },
+    {
+      "playedOn": "2022-02-13",
+      "winner": "y",
+      "leaderB": "Count Ilban Richese",
+      "leaderY": "Baron Harkonnen",
+      "points": 11
+    },
+    {
+      "playedOn": "2022-02-22",
+      "winner": "b",
+      "leaderB": "Helena Richese",
+      "leaderY": "Duke Leto Atreides",
+      "points": 13
+    },
+    {
+      "playedOn": "2022-02-23",
+      "winner": "y",
+      "leaderB": "Count Ilban Richese",
+      "leaderY": "Glossu Beast Rabban",
+      "points": 12
+    },
+    {
+      "playedOn": "2022-02-26",
+      "winner": "y",
+      "leaderB": "Helena Richese",
+      "leaderY": "Baron Harkonnen",
+      "points": 11
+    },
+    {
+      "playedOn": "2022-02-28",
+      "winner": "y",
+      "leaderB": "Paul Atreides",
+      "leaderY": "Earl Memnon Thorvald",
+      "points": 12
+    }
+  ]
+}

@@ -1,40 +1,49 @@
+<div class="mars">
 <div class="container px-2 py-5" id="gamesList">
-  <h2 class="pb-2 border-bottom">Played games ({{gameData.length}})</h2>
-  <table class="table table-sm table-striped">
+  <h2 class="pb-2 border-bottom border-dark">Played games ({{gameData.length}})</h2>
+  <table class="table table-sm border-dark ">
     <thead>
     <tr>
-      <th scope="col" sortable="PlayedOn" (sort)="onSort($event)"><i style="color:#3767d0" class="bi bi-calendar3"></i><span class='d-none d-sm-inline-block'>&nbsp;Date</span></th>
-      <th scope="col" sortable="First" (sort)="onSort($event)"><span class='d-none d-sm-inline-block'>1st&nbsp;</span> <i style="color:#ffd700" class="bi bi-award-fill"></i></th>
+      <th scope="col" sortable="playedOn" (sort)="onSort($event)"><i style="color:#3767d0" class="bi bi-calendar3"></i><span class='d-none d-sm-inline-block'>&nbsp;Date</span></th>
+      <th scope="col" sortable="first" (sort)="onSort($event)"><span class='d-none d-sm-inline-block'>1st&nbsp;</span> <i style="color:#ffd700" class="bi bi-award-fill"></i></th>
       <th><span class='d-none d-sm-inline-block'>2nd&nbsp;</span> <i style="color:#e0e4f8" class="bi bi-award-fill"></i></th>
       <th><span class='d-none d-sm-inline-block'>3rd&nbsp;</span> <i style="color:#ff9377" class="bi bi-award-fill"></i></th>
       <th><span class='d-none d-sm-inline-block'>Expansions&nbsp;</span> <i style="color:#3767d0" class="bi bi-stack"></i></th>
-      <th scope="col" sortable="Points" (sort)="onSort($event)"><span class='d-none d-sm-inline-block'>Points&nbsp;</span> <i class="bi bi-bar-chart-fill"></i></th>
+      <th scope="col" sortable="points" (sort)="onSort($event)"><span class='d-none d-sm-inline-block'>Points&nbsp;</span> <i class="bi bi-bar-chart-fill"></i></th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor = "let game of gameData " class="small" >
-      <td> {{ toDate(game.PlayedOn)  }} </td>
-      <td> {{ game.First  }} </td>
-      <td> {{ game.Second }} </td>
-      <td> {{ game.Third }} </td>
+    <tr *ngFor = "let game of gameData; index as i " class="small" >
+      <td> {{ toDate(game.playedOn)  }} </td>
+      <td *ngIf='isMaskedGame && i < 4 || !isMaskedGame else maskGame'> {{ game.first  }} </td>
+      <td *ngIf='isMaskedGame && i < 4 || !isMaskedGame else maskGame'> {{ game.second }} </td>
+      <td *ngIf='isMaskedGame && i < 4 || !isMaskedGame else maskGame'> {{ game.third }} </td>
       <td>
-        <img *ngIf="game.Venus" alt='venus' src='/assets/images/Venus_Next_icon.webp' width='20' height='20' />
-        <img *ngIf="game.Colonies" alt='colonies' src='/assets/images/Colonies_icon.webp' width='20' height='20' />
-        <img *ngIf="game.Turmoil" alt='turmoil' src='/assets/images/Turmoil_icon.webp' width='20' height='20' />
+        <img *ngIf="game.venus" alt='venus' src='/assets/images/Venus_Next_icon.webp' width='20' height='20' />
+        <img *ngIf="game.colonies" alt='colonies' src='/assets/images/Colonies_icon.webp' width='20' height='20' />
+        <img *ngIf="game.turmoil" alt='turmoil' src='/assets/images/Turmoil_icon.webp' width='20' height='20' />
       </td>
-      <td *ngIf='game.Points > 0; else pointsNull'> {{ game.Points }} </td>
+      <td *ngIf='game.points > 0; else pointsNull'> {{ game.points }} </td>
     </tr>
     </tbody>
   </table>
+  <div class="form-check form-switch d-flex justify-content-end">
+    <input (click)=toggleIsMasked() class="form-check-input" type="checkbox" id="flexSwitchCheckDefault">
+    <label class="form-check-label" for="flexSwitchCheckDefault">&nbsp; unmask players</label>
+  </div>
 </div>
+
+<ng-template #maskGame>
+  <td>*</td>
+</ng-template>
 
 <ng-template #pointsNull>
    <td></td>
 </ng-template>
 
-<div class="container px-2" id="leaderboardSeason" *ngIf="groupedByPlayerWins.length>0">
-  <h2 class="pb-2 border-bottom">Leaderboard</h2>
-  <table class="table table-sm table-striped">
+<div class="container px-2" id="leaderboardSeason" *ngIf="groupedByPlayerWins.length>0 && !isMaskedGame">
+  <h2 class="pb-2 border-bottom border-dark">Leaderboard</h2>
+  <table class="table table-sm border-dark">
     <thead>
     <tr>
       <th><i class="bi bi-person-circle"></i> Player</th>
@@ -143,4 +152,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>

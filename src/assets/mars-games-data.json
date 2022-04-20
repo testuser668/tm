@@ -1,0 +1,265 @@
+[
+    {
+      "playedOn": "2020-10-07",
+      "first": "b",
+      "second": "r",
+      "third": "y",
+      "venus": null,
+      "colonies": null,
+      "turmoil": null,
+      "points": 0
+    },
+    {
+      "playedOn": "2020-10-17",
+      "first": "y",
+      "second": "r",
+      "third": "b",
+      "venus": null,
+      "colonies": null,
+      "turmoil": null,
+      "points": 0
+    },
+    {
+      "playedOn": "2020-10-18",
+      "first": "b",
+      "second": "y",
+      "third": "r",
+      "venus": null,
+      "colonies": null,
+      "turmoil": null,
+      "points": 0
+    },
+    {
+      "playedOn": "2020-10-29",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": null,
+      "colonies": null,
+      "turmoil": null,
+      "points": 0
+    },
+    {
+      "playedOn": "2020-11-01",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": null,
+      "colonies": null,
+      "turmoil": null,
+      "points": 0
+    },
+    {
+      "playedOn": "2020-11-05",
+      "first": "b",
+      "second": "r",
+      "third": "y",
+      "venus": 1,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 0
+    },
+    {
+      "playedOn": "2020-11-23",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": 0,
+      "colonies": 0,
+      "turmoil": 1,
+      "points": 0
+    },
+    {
+      "playedOn": "2020-11-30",
+      "first": "b",
+      "second": "r",
+      "third": "y",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 0
+    },
+    {
+      "playedOn": "2020-12-02",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": 1,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 0
+    },
+    {
+      "playedOn": "2020-12-06",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": 1,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 0
+    },
+    {
+      "playedOn": "2021-01-13",
+      "first": "y",
+      "second": "r",
+      "third": "b",
+      "venus": 1,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 145
+    },
+    {
+      "playedOn": "2021-01-16",
+      "first": "b",
+      "second": "r",
+      "third": "y",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 127
+    },
+    {
+      "playedOn": "2021-02-26",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 1,
+      "points": 95
+    },
+    {
+      "playedOn": "2021-03-10",
+      "first": "y",
+      "second": "b",
+      "third": "r",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 100
+    },
+    {
+      "playedOn": "2021-03-11",
+      "first": "b",
+      "second": "r",
+      "third": "y",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 130
+    },
+    {
+      "playedOn": "2021-03-20",
+      "first": "b",
+      "second": "r",
+      "third": "y",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 128
+    },
+    {
+      "playedOn": "2021-03-25",
+      "first": "y",
+      "second": "b",
+      "third": "r",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 127
+    },
+    {
+      "playedOn": "2021-04-03",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 118
+    },
+    {
+      "playedOn": "2021-04-04",
+      "first": "r",
+      "second": "y",
+      "third": "b",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 109
+    },
+    {
+      "playedOn": "2021-08-08",
+      "first": "b",
+      "second": "r",
+      "third": "y",
+      "venus": 1,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 137
+    },
+    {
+      "playedOn": "2021-10-03",
+      "first": "r",
+      "second": "y",
+      "third": "b",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 86
+    },
+    {
+      "playedOn": "2021-11-17",
+      "first": "y",
+      "second": "r",
+      "third": "b",
+      "venus": 0,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 103
+    },
+    {
+      "playedOn": "2021-12-10",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": 1,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 137
+    },
+    {
+      "playedOn": "2022-01-21",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": 1,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 140,
+      "map": "green"
+    },
+    {
+      "playedOn": "2022-03-24",
+      "first": "y",
+      "second": "r",
+      "third": "b",
+      "venus": 1,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 115,
+      "map": "blue"
+    },
+    {
+      "playedOn": "2022-04-16",
+      "first": "r",
+      "second": "b",
+      "third": "y",
+      "venus": 1,
+      "colonies": 1,
+      "turmoil": 0,
+      "points": 143,
+      "map": "red"
+    }
+  ]

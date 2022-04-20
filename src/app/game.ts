@@ -1,15 +1,15 @@
-
 export class Game {
 
   constructor(
-    public PlayedOn : string,
-    public First : string,
-    public Second : string,
-    public Third : string,
-    public Venus : boolean,
-    public Colonies : boolean,
-    public Turmoil : boolean,
-    public Points : number
+    public playedOn : string,
+    public first : string,
+    public second : string,
+    public third : string,
+    public venus : boolean,
+    public colonies : boolean,
+    public turmoil : boolean,
+    public points : number,
+    public map : string
   ) {}
 
 }
