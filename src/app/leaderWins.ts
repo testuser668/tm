@@ -4,6 +4,7 @@ export class LeaderWins {
     public leader : string,
     public stars : string,
     public wins : number,
-    public total : number
+    public total : number,
+    public ix : boolean
   ) {}
 }

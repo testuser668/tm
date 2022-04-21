@@ -13,24 +13,30 @@ import {LeaderWins} from "./leaderWins";
 export class GameService {
 
   private path = '/assets/mars-games-data.json';
-  leaders: {name: string, stars: string}[] = [ // 8 leaders
-    {name: "Duke Leto Atreides", stars: "&#x2B22;&#x2B22;"},
-    {name: "Baron Harkonnen", stars: "&#x2B22;&#x2B22;&#x2B22;"},
-    {name: "Countess Ariana Thorvald", stars: "&#x2B22;&#x2B22;&#x2B22;"},
-    {name: "Earl Memnon Thorvald", stars: "&#x2B22;"},
-    {name: "Count Ilban Richese", stars: "&#x2B22;"},
-    {name: "Helena Richese", stars: "&#x2B22;&#x2B22;"},
-    {name: "Paul Atreides", stars: "&#x2B22;"},
-    {name: "Glossu Beast Rabban", stars: "&#x2B22;"}
+  leaders: {name: string, stars: string, ix: boolean}[] = [ // 8 leaders + 6 ix leader
+    {name: "Duke Leto Atreides", stars: "&#x2B22;&#x2B22;", ix: false},
+    {name: "Baron Harkonnen", stars: "&#x2B22;&#x2B22;&#x2B22;", ix: false},
+    {name: "Countess Ariana Thorvald", stars: "&#x2B22;&#x2B22;&#x2B22;", ix: false},
+    {name: "Earl Memnon Thorvald", stars: "&#x2B22;", ix: false},
+    {name: "Count Ilban Richese", stars: "&#x2B22;", ix: false},
+    {name: "Helena Richese", stars: "&#x2B22;&#x2B22;", ix: false},
+    {name: "Paul Atreides", stars: "&#x2B22;", ix: false},
+    {name: "Glossu Beast Rabban", stars: "&#x2B22;", ix: false},
+    {name: "Viscount Hundro Moritani", stars: "&#x2B22;", ix: true},
+    {name: "Princess Yuna Moritani", stars: "&#x2B22;&#x2B22;", ix: true},
+    {name: "Achduke Armand Ecaz", stars: "&#x2B22;&#x2B22;", ix: true},
+    {name: "Ilesa Ecaz", stars: "&#x2B22;&#x2B22;&#x2B22;", ix: true},
+    {name: "Tessia Vernius", stars: "&#x2B22;&#x2B22;&#x2B22;&#x2B22;", ix: true},
+    {name: "Prince Rhombur Vernius", stars: "&#x2B22;", ix: true},
   ]
 
-  ixLeaders: {name: string, stars: string}[] = [ // 6 leaders
-    {name: "Viscount Hundro Moritani", stars: "&#x2B22;"},
-    {name: "Princess Yuna Moritani", stars: "&#x2B22;&#x2B22;"},
-    {name: "Achduke Armand Ecaz", stars: "&#x2B22;&#x2B22;"},
-    {name: "Ilesa Ecaz", stars: "&#x2B22;&#x2B22;&#x2B22;"},
-    {name: "Tessia Vernius", stars: "&#x2B22;&#x2B22;&#x2B22;&#x2B22;"},
-    {name: "Prince Rhombur Vernius", stars: "&#x2B22;"},
+  ixLeaders: {name: string, stars: string, ix: boolean}[] = [ // 6 leaders
+    {name: "Viscount Hundro Moritani", stars: "&#x2B22;", ix: true},
+    {name: "Princess Yuna Moritani", stars: "&#x2B22;&#x2B22;", ix: true},
+    {name: "Achduke Armand Ecaz", stars: "&#x2B22;&#x2B22;", ix: true},
+    {name: "Ilesa Ecaz", stars: "&#x2B22;&#x2B22;&#x2B22;", ix: true},
+    {name: "Tessia Vernius", stars: "&#x2B22;&#x2B22;&#x2B22;&#x2B22;", ix: true},
+    {name: "Prince Rhombur Vernius", stars: "&#x2B22;", ix: true},
   ]
 
   constructor(private http : HttpClient, private db: AngularFireDatabase) {
@@ -130,7 +136,7 @@ export class GameService {
       let total = games.filter(x => x.leaderY === leader.name || x.leaderB === leader.name).length;
       let wins = games.filter(x =>
         ((x.leaderY === leader.name && x.winner === "y") || (x.leaderB === leader.name && x.winner === "b"))).length;
-      groupedByLeader.push({leader : leader.name, stars: leader.stars, wins: wins, total: total});
+      groupedByLeader.push({leader : leader.name, stars: leader.stars, wins: wins, total: total, ix: leader.ix});
     }
 
     return groupedByLeader.sort(
@@ -146,7 +152,7 @@ export class GameService {
   getIxLeaders(): LeaderWins[] {
     let ixLeader: LeaderWins[] = [];
     for (const leader of this.ixLeaders) {
-      ixLeader.push({leader: leader.name, stars: leader.stars, wins: 0, total: 0});
+      ixLeader.push({leader: leader.name, stars: leader.stars, wins: 0, total: 0, ix: true});
     }
     return ixLeader;
   }

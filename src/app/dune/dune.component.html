@@ -26,7 +26,9 @@
       <h5>Leader power according to won games</h5>
       <div ngPreserveWhitespaces>
       <span *ngFor="let leader of groupedByLeaderWins">
-        <span class="badge bg-secondary">
+        <span *ngIf="leader.ix" class="badge" style="background-color: #5e66c4">
+          {{leader.leader}} <span style="color: rgb(189,187,187); font-size: 12px;" [innerHTML]="leader.stars"></span>
+        </span><span *ngIf="!leader.ix" class="badge bg-secondary">
           {{leader.leader}} <span style="color: rgb(189,187,187); font-size: 12px;" [innerHTML]="leader.stars"></span>
         </span><span class="badge bg-dark">{{leader.wins}}/{{leader.total}}</span>&nbsp;
       </span>

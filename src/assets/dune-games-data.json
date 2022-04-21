@@ -69,6 +69,13 @@
       "leaderB": "Paul Atreides",
       "leaderY": "Earl Memnon Thorvald",
       "points": 12
+    },
+    {
+      "playedOn": "2022-04-10",
+      "winner": "y",
+      "leaderB": "Achduke Armand Ecaz",
+      "leaderY": "Ilesa Ecaz",
+      "points": 12
     }
   ]
 }
